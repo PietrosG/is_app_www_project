@@ -3,8 +3,6 @@ from django.http import Http404, HttpResponse
 import datetime
 from .models import Topic, Category, Post
 
-
-
 def welcome_view(request):
     now = datetime.datetime.now()
     html = f"""
