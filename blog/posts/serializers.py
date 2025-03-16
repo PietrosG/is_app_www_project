@@ -24,3 +24,13 @@ class TopicSerializer(serializers.Serializer):
         instance.category = validated_data.get('category', instance.category)
         instance.save()
         return instance
+    
+class TopicModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        # musimy wskazać klasę modelu
+        model = Topic
+        # definiując poniższe pole możemy określić listę właściwości modelu,
+        # które chcemy serializować
+        fields = ['id', 'name', 'created', 'category']
+        # definicja pola modelu tylko do odczytu
+        read_only_fields = ['id']
